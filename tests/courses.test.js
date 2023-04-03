@@ -1,22 +1,8 @@
 const { test } = require('@playwright/test');
-const HomePage = require("../pageModules/HomePage");
-const MyAccountPage = require("../pageModules/MyAccountPage");
-const MyDashboardPage = require("../pageModules/MyDashboardPage");
-const SignInPage = require("../pageModules/SignInPage");
-const SignUpPage = require("../pageModules/SignUpPage");
-const CourseDetailsPage = require("../pageModules/CourseDetailsPage");
-const CoursesCollectionPage = require("../pageModules/CoursesCollectionPage");
-const CourseEnrollmentPage = require("../pageModules/CourseEnrollMentPage");
+const IndexPage = require("../pageModules/IndexPage");
 
 test('test', async ({ page }) => {
-  const homePage = new HomePage(page);
-  const myAccountPage = new MyAccountPage(page);
-  const myDashboardPage = new MyDashboardPage(page);
-  const signInPage = new SignInPage(page);
-  const signUpPage = new SignUpPage(page);
-  const courseDetailsPage = new CourseDetailsPage(page);
-  const coursesCollectionPage = new CoursesCollectionPage(page);
-  const courseEnrollmentPage = new CourseEnrollmentPage(page);
+  const { homePage, signInPage, signUpPage, coursesCollectionPage, courseDetailsPage, courseEnrollmentPage, myAccountPage, myDashboardPage } = new IndexPage(page);
 
   await homePage.openHomePageURL();
 
@@ -27,7 +13,7 @@ test('test', async ({ page }) => {
   let userDetails = {
     firstName: "xxx",
     lastName: "xxx",
-    email: "zww@wwz.com",
+    email: "zwx@zwz.com",
     password: "12345678"
   }
   await signUpPage.fillAndSubmitSignUpForm(userDetails);

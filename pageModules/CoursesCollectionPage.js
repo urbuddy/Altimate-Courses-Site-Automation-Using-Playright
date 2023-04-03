@@ -3,43 +3,36 @@ const Selectors = require("../Selectors/Selectors");
 class CoursesCollectionPage {
 
     /**
-     * @param {import('@playwright/test').Page} page
-    */
-    constructor(page) {
-        this.page = page;
-    }
-
-    /**
      * Verify User Loged In
      * @param {string} firstName - First Name of User
      */
     async verifyUserLogedIn(firstName){
-        await this.page.waitForSelector(Selectors.profileMenuBtn);
-        await expect(await this.page.$eval(Selectors.profileMenuBtn, ele => ele.innerText)).toContain(firstName);
+        await page.waitForSelector(Selectors.profileMenuBtn);
+        await expect(await page.$eval(Selectors.profileMenuBtn, ele => ele.innerText)).toContain(firstName);
     }
 
     /**
      * Click on Profile Button
      */
     async clickProfileBtn(){
-        await this.page.waitForSelector(Selectors.profileMenuBtn);
-        await this.page.click(Selectors.profileMenuBtn);
+        await page.waitForSelector(Selectors.profileMenuBtn);
+        await page.click(Selectors.profileMenuBtn);
     }
 
     /**
      * Click on My Account Button
      */
     async clickMyAccountBtn(){
-        await this.page.waitForSelector(Selectors.links("/account"));
-        await this.page.click(Selectors.links("/account"));
+        await page.waitForSelector(Selectors.links("/account"));
+        await page.click(Selectors.links("/account"));
     }
 
     /**
      * Click on Courses Collection Page Link
      */
     async clickCoursesCollectionPageLink(){
-        await this.page.waitForSelector(Selectors.links("/collections"));
-        await this.page.click(Selectors.links("/collections"));
+        await page.waitForSelector(Selectors.links("/collections"));
+        await page.click(Selectors.links("/collections"));
     }
 
     /**
@@ -47,24 +40,24 @@ class CoursesCollectionPage {
      * @param {string} courseName - Course Name
      */
     async clickSpecificCourseEnrollmentPageLink(courseName){
-        await this.page.waitForSelector(Selectors.courseNameWithSpecificHeader("h3", courseName));
-        await this.page.click(Selectors.courseNameWithSpecificHeader("h3", courseName));
+        await page.waitForSelector(Selectors.courseNameWithSpecificHeader("h3", courseName));
+        await page.click(Selectors.courseNameWithSpecificHeader("h3", courseName));
     }
 
     /**
      * Click on My Dashboard Page Link 
      */
     async clickMyDashboardPageLink(){
-        await this.page.waitForSelector(Selectors.links("/enrollments"));
-        await this.page.click(Selectors.links("/enrollments"));
+        await page.waitForSelector(Selectors.links("/enrollments"));
+        await page.click(Selectors.links("/enrollments"));
     }
 
     /**
      * Click on Sign-Out Button
      */
     async clickSignOutBtn() {
-        await this.page.waitForSelector(Selectors.links("/users/sign_out"));
-        await this.page.click(Selectors.links("/users/sign_out"));
+        await page.waitForSelector(Selectors.links("/users/sign_out"));
+        await page.click(Selectors.links("/users/sign_out"));
     }
 }
 module.exports = CoursesCollectionPage;
