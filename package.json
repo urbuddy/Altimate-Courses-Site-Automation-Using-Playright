@@ -1,0 +1,13 @@
+{
+  "name": "courses-site",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "HEADLESS_MODE": "HEADLESS=true RETRIES=0 npx playwright test",
+    "NON_HEADLESS_MODE": "HEADLESS=false RETRIES=0 npx playwright test",
+    "REPORT": "npx playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.32.1"
+  }
+}
